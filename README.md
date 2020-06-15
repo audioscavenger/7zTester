@@ -13,6 +13,7 @@ Benchmark for 7zip: compress a list of files with different settings and factors
 ## Usage:
 1. setup _:defaults_, _:init_ and _:prechecks_ in the batch
 2. run the batch and enjoy
+3. parameters accepted: -D -V -l
 
 
 ## Features:
@@ -24,6 +25,7 @@ Benchmark for 7zip: compress a list of files with different settings and factors
 
 ## Requisites:
 - 7z.exe
+- awk.exe (optional)
 - get_date_format.cmd
 - get_timelapse.cmd
 - 64bit Windows recommended

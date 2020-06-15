@@ -27,6 +27,7 @@ set author=AudioscavengeR
 ::-----------------------------------------------------------------------------------
 :: Requisites:
 :: - 7z.exe
+:: - awk.exe (optional)
 :: - get_date_format.cmd
 :: - get_timelapse.cmd
 :: - 64bit Windows recommended
@@ -121,6 +122,7 @@ call :detect_CPUname
 call :detectCpuThreads
 call :detect_sevenZip
 
+for %%x in (awk.exe) DO set "AWK_BIN=%%~$PATH:x"
 
 :: https://sevenzip.osdn.jp/chm/cmdline/switches/method.htm ::::::::::::::::::::::::::::::::::::::::::
 REM Zip
@@ -276,7 +278,7 @@ REM echo %HIGH%%w%%METHOD%.%zipEXT%.%LEVEL%: %y%%nbNewArch% files / %nbThreads% 
 
 
 IF DEFINED DEBUG echo DEBUG: CSV = %CSV% 1>&2
-awk -F; "BEGIN { getline; L=1; for (i=1; i<=NF; ++i) { line[L,i] = $i; len[i]=length(line[L,i]) }; L++; } {   for (i=1; i<=NF; ++i) {     line[L,i] = $i;     if (truncate == 0) { if (length($i) > len[i]) { len[i]=length($i) } }   };   L++; } END {   for (L=1; L<=NR; ++L) {     for (i=1; i<=NF; ++i) {       printf """%%-*s%%s""", len[i], substr(line[L,i],1,len[i]), (i<NF?OFS:ORS)     }   } }" %CSV%
+IF DEFINED AWK_BIN %AWK_BIN% -F; "BEGIN { getline; L=1; for (i=1; i<=NF; ++i) { line[L,i] = $i; len[i]=length(line[L,i]) }; L++; } {   for (i=1; i<=NF; ++i) {     line[L,i] = $i;     if (truncate == 0) { if (length($i) > len[i]) { len[i]=length($i) } }   };   L++; } END {   for (L=1; L<=NR; ++L) {     for (i=1; i<=NF; ++i) {       printf """%%-*s%%s""", len[i], substr(line[L,i],1,len[i]), (i<NF?OFS:ORS)     }   } }" %CSV%
 echo ================================================================================ 1>&2
 
 goto :EOF

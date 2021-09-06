@@ -1,53 +1,17 @@
-# 7zTester
-Benchmark for 7zip: compress a list of files with different settings and factors, produces a CSV 
+## not using your crap tokens
+Using tokens makes github more unsecure.
 
-## Purpose:
-- Benchmark for 7zip: compress a list of files with different settings and factors:
-   + Temporary folders: to test if drive overhead really matters
-   + methods by their extention: zip, 7z, add your own...
-   + compression levels: 0 1 3 5 7 9
-- finally gather time and size data to produce a CSV output you can play with
-- for more information on 7z switches, see https://sevenzip.osdn.jp/chm/cmdline/switches/
+Why? Simply because once you generate a token and close the window, you cannot access it anymore. Therefore, since no human being is able to remember them, people are gonna start using text files, password managers and watnot.
 
+How is a password saved in a text file more secure then one that is not, one that I can remember?
 
-## Usage:
-1. setup _:defaults_, _:init_ and _:prechecks_ in the batch
-2. run the batch and enjoy
-3. parameters accepted: -D -V -l
+## On August 13, 2021, github.com created a total mess and I'm outta here. Here is why:
+- tokens are just long passwords, which I already was using. No improvements, only headaches.
+- tokens are not more secure then passwords since they are basically the same.
+- tokens make our life misearable.
+- could not obtainvaluable help on the forums to enable SSH.
+- github did not provide a single guide to convert all you local repos to SSH or tokens easily.
+- I claim that github.com do not care about users anymore.
+- I am leaving the multi-million$ github "community". Oh wait isn't that owned by M$?
 
-
-## Features:
-- auto-detection of 7zip on your system
-- colors
-- a wealth of parameters can be ajusted
-- parametric output field list easy to update
-
-
-## Requisites:
-- 7z.exe
-- awk.exe (optional)
-- get_date_format.cmd
-- get_timelapse.cmd
-- 64bit Windows recommended
-
-
-## Changelog:
-* 1.1  accomodate special chars
-* 1.2  default compression level is 5, among 1,3,5,7,9
-* 1.3  CSV field names and list is parametrable
-* 1.4  CSV and LOG using CPU name
-* 1.5  fix OUTPUTFOLDER
-* 1.6  make sure testFile EXT is included in zipFile name
-
-
-## TODO LIST:
-- [ ] add files to tests as parameter
-- [ ] add :arguments function to process more agruments
-- [ ] add unzip to tests decompression speed?
-- [ ] include get_timelapse.cmd and get_date_format.cmd in this batch to get rid of requisites?
-- [ ] try and get rid of these unix binaries?
-
-Screenshots
------------
-![Output](https://github.com/audioscavenger/7zTester/blob/master/assets/7zTester-1.6-output.png)
-
+repo moved here https://github.com/audioscavenger/7zTester
